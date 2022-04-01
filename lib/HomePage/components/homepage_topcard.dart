@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +56,7 @@ class homepage_top extends StatelessWidget {
                               animatedTexts: [
                                 TypewriterAnimatedText('< Flutter Developer >',
                                     speed: Duration(milliseconds: 100)),
-                                TypewriterAnimatedText('<Web Developer>',
+                                TypewriterAnimatedText('<React Native Developer>',
                                     speed: Duration(milliseconds: 100)),
                               ],
                             ),
@@ -86,47 +88,50 @@ class homepage_top extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(vertical: 40.0),
                           child: Row(
                             children: [
-                              Container(
-                                height:size.height*0.07,
-                                width:size.width*0.12,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(80),
-                                  border: Border.all(
-                                      color: Color(0xff007CED), width: 2),
-                                  color: Color(0xff333333),
+                              GestureDetector(
+                                onTap: ()=>downloadFile("assets/cv/CV.pdf"),
+                                child: Container(
+                                  height:size.height*0.07,
+                                  width:size.width*0.12,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(80),
+                                    border: Border.all(
+                                        color: Color(0xff007CED), width: 2),
+                                    color: Color(0xff333333),
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                        'Download CV',
+                                        style: TextStyle(
+                                          color: Color(0xfff5f5f5),
+                                          fontFamily: 'Helvetica',
+                                          fontSize: 16,
+                                        ),
+                                      )),
                                 ),
-                                child: Center(
-                                    child: Text(
-                                      'Download CV',
-                                      style: TextStyle(
-                                        color: Color(0xfff5f5f5),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: 16,
-                                      ),
-                                    )),
                               ),
                               SizedBox(
                                 width:size.width*0.01,
                               ),
-                              Container(
-                                height:size.height*0.07,
-                                width:size.width*0.08,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(80),
-                                  border: Border.all(
-                                      color: Color(0xffffffff), width: 2),
-                                  color: Color(0xff333333),
-                                ),
-                                child: Center(
-                                    child: Text(
-                                      'Contact',
-                                      style: TextStyle(
-                                        color: Color(0xfff5f5f5),
-                                        fontFamily: 'Helvetica',
-                                        fontSize: 16,
-                                      ),
-                                    )),
-                              ),
+                              // Container(
+                              //   height:size.height*0.07,
+                              //   width:size.width*0.08,
+                              //   decoration: BoxDecoration(
+                              //     borderRadius: BorderRadius.circular(80),
+                              //     border: Border.all(
+                              //         color: Color(0xffffffff), width: 2),
+                              //     color: Color(0xff333333),
+                              //   ),
+                              //   child: Center(
+                              //       child: Text(
+                              //         'Contact',
+                              //         style: TextStyle(
+                              //           color: Color(0xfff5f5f5),
+                              //           fontFamily: 'Helvetica',
+                              //           fontSize: 16,
+                              //         ),
+                              //       )),
+                              // ),
                             ],
                           ),
                         ),
@@ -139,4 +144,9 @@ class homepage_top extends StatelessWidget {
       ),
     );
   }
+}
+downloadFile(url) {
+  AnchorElement anchorElement = new AnchorElement(href: url);
+  anchorElement.download = "Behruz Veliyev CV";
+  anchorElement.click();
 }

@@ -1,6 +1,3 @@
-
-
-import 'package:behruzveliyevblog/BlogPage/blogpage.dart';
 import 'package:behruzveliyevblog/ContactPage/contactpage.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,7 +19,6 @@ class _homepageState extends State<homepage> {
     aboutpage(),
     resumepage(),
     portfoliopage(),
-    blogpage(),
     contactpage(),
   ];
   @override
@@ -44,7 +40,7 @@ class _homepageState extends State<homepage> {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color(0xff353535),
+                    color: Color(0xff212122).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(25.0),
                   ),
                   child: Padding(
@@ -53,30 +49,26 @@ class _homepageState extends State<homepage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset('assets/images/logob.png', width: 50,),
-                        SizedBox(width: 10,),
+                        SizedBox(width: size.width*0.01,),
                         Text('Behruz',style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold, color: Colors.white, fontFamily: 'OpenSans')),
                         Text(' Veliyev',style: TextStyle(fontSize: 18,fontWeight:FontWeight.w400, color: Colors.white, fontFamily: 'OpenSans')),
                         Spacer(),
                         buildNavbar('About Me', 0),
                         SizedBox(
-                          width: 1,
+                          width: size.width*0.001,
                         ),
                         buildNavbar('Resume', 1),
                         SizedBox(
-                          width: 1,
+                          width: size.width*0.001,
                         ),
                         buildNavbar(
                           'Portfolio',
                           2,
                         ),
                         SizedBox(
-                          width: 1,
+                          width: size.width*0.01,
                         ),
-                        buildNavbar('Blog', 3),
-                        SizedBox(
-                          width:10 ,
-                        ),
-                        buildNavbar('Contact', 4),
+                        buildNavbar('Contact', 3),
                       ],
 
                     ),
@@ -84,6 +76,7 @@ class _homepageState extends State<homepage> {
                 ),
               ],
             )
+
           ],
         ),
 
